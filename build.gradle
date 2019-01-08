@@ -1,0 +1,38 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.2.30'
+    repositories {
+        mavenCentral()
+        jcenter()
+		maven {url 'https://maven.google.com'}
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+allprojects {
+    repositories {
+        mavenCentral()
+        jcenter()
+		maven {url 'https://maven.google.com'}
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    // Sdk and tools
+    compile_sdk_version = 27
+    build_tools_version = "27.0.3"
+    min_sdk_version = 16
+    target_sdk_version = 27
+
+    // App dependencies
+    support_version = '27.1.1'
+}
